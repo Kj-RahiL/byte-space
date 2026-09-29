@@ -1,43 +1,159 @@
 @import "tailwindcss";
 
-:root {
-  color-scheme: dark;
-}
-
+/*
+ * ByteSpace design tokens — sourced from the Figma file's variables
+ * (Home page, node 1:1067). Palette names mirror Figma so a token can be
+ * traced back to the design: `Electric Lime/400` -> `electric-lime-400`.
+ */
 @theme {
-  /* Surfaces */
-  --color-background: #12131A;
-  --color-surface: #1B1E29;
-  --color-surface-hover: #20232F;
-  --color-border: #2B2F3D;
+  /* ---------- Palette ---------- */
+  --color-electric-lime-400: #d4fb20;
+  --color-electric-lime-500: #cbfc01;
 
-  /* Brand */
-  --color-primary: #F2A93B;
-  --color-primary-hover: #C97F14;
-  --color-secondary: #46D9B0;
-  --color-secondary-hover: #34B393;
+  --color-persian-blue-800: #003be2;
 
-  /* Text */
-  --color-foreground: #F3F1E9;
-  --color-muted-foreground: #8B8D99;
+  --color-electric-violet-600: #7f30f7;
+  --color-electric-violet-950: #300b6a;
 
-  /* Typography */
-  --font-display: "Space Grotesk", sans-serif;
-  --font-body: "Manrope", sans-serif;
-  --font-mono: "IBM Plex Mono", monospace;
+  --color-shuttle-gray-50: #f5f5f6;
+  --color-shuttle-gray-100: #e5e6e8;
+  --color-shuttle-gray-200: #ced0d3;
+  --color-shuttle-gray-300: #abaeb5;
+  --color-shuttle-gray-400: #82868e;
+  --color-shuttle-gray-700: #4b4c53;
+  --color-shuttle-gray-900: #3a3b3f;
+  --color-shuttle-gray-950: #242528;
+
+  --color-black-700: #4f4f4f;
+  --color-black-950: #000000;
+
+  /* Section headings use this near-black ink */
+  --color-ink: #040819;
+
+  /* ---------- Semantic aliases ---------- */
+  --color-background: #ffffff;
+  --color-foreground: var(--color-ink);
+  --color-muted-foreground: var(--color-shuttle-gray-400);
+  --color-surface: var(--color-shuttle-gray-50);
+  --color-surface-hover: var(--color-shuttle-gray-100);
+  --color-border: var(--color-shuttle-gray-200);
+
+  --color-primary: var(--color-persian-blue-800);
+  --color-primary-hover: #0031bd;
+  --color-accent: var(--color-electric-lime-400);
+  --color-accent-hover: var(--color-electric-lime-500);
+  --color-secondary: var(--color-electric-violet-600);
+  --color-secondary-hover: var(--color-electric-violet-950);
+
+  /* ---------- Layout ---------- */
+  --container-page: 1200px;
+
+  /* ---------- Effects ---------- */
+  /* Figma effect style "A" — layered soft drop shadow for floating cards */
+  --shadow-elevated:
+    0.52px 0.74px 3.04px rgb(0 0 0 / 0.04), 2.23px 3.19px 5.72px rgb(0 0 0 / 0.06),
+    5.38px 7.69px 9.57px rgb(0 0 0 / 0.07), 10.21px 14.58px 16.09px rgb(0 0 0 / 0.08),
+    16.95px 24.21px 24px rgb(0 0 0 / 0.09), 25.84px 36.91px 36px rgb(0 0 0 / 0.1),
+    37.12px 53.03px 56px rgb(0 0 0 / 0.11), 51.04px 72.91px 72px rgb(0 0 0 / 0.13);
+
+  /* ---------- Typography scale ---------- */
+  /* Figma letter-spacing of -1 is a percentage: -1% -> -0.01em */
+
+  /* Display — Poppins Medium */
+  --text-display-s: 44px;
+  --text-display-s--line-height: 52px;
+  --text-display-s--letter-spacing: -0.01em;
+  --text-display-s--font-weight: 500;
+  --text-display-xs: 36px;
+  --text-display-xs--line-height: 44px;
+  --text-display-xs--letter-spacing: -0.01em;
+  --text-display-xs--font-weight: 500;
+
+  /* Heading — Poppins SemiBold */
+  --text-heading-l: 72px;
+  --text-heading-l--line-height: 1.2;
+  --text-heading-l--letter-spacing: -0.01em;
+  --text-heading-l--font-weight: 600;
+  --text-heading-m: 44px;
+  --text-heading-m--line-height: 1.2;
+  --text-heading-m--letter-spacing: -0.01em;
+  --text-heading-m--font-weight: 600;
+  --text-heading-s: 24px;
+  --text-heading-s--line-height: 32px;
+  --text-heading-s--letter-spacing: -0.01em;
+  --text-heading-s--font-weight: 600;
+  --text-heading-xs: 20px;
+  --text-heading-xs--line-height: 28px;
+  --text-heading-xs--letter-spacing: -0.01em;
+  --text-heading-xs--font-weight: 600;
+
+  /* Body — Satoshi Regular */
+  --text-body-l: 18px;
+  --text-body-l--line-height: 1.6;
+  --text-body-l--font-weight: 400;
+  --text-body-m: 16px;
+  --text-body-m--line-height: 24px;
+  --text-body-m--font-weight: 400;
+  --text-body-s: 14px;
+  --text-body-s--line-height: 1.6;
+  --text-body-s--font-weight: 400;
+  --text-body-xs: 12px;
+  --text-body-xs--line-height: 1.6;
+  --text-body-xs--font-weight: 400;
+
+  /* Label — Satoshi Medium */
+  --text-label-xl: 20px;
+  --text-label-xl--line-height: 1.2;
+  --text-label-xl--font-weight: 500;
+  --text-label-l: 18px;
+  --text-label-l--line-height: 1.2;
+  --text-label-l--font-weight: 500;
+  --text-label-m: 16px;
+  --text-label-m--line-height: 1.2;
+  --text-label-m--font-weight: 500;
+  --text-label-s: 14px;
+  --text-label-s--line-height: 1.2;
+  --text-label-s--font-weight: 500;
+  --text-label-xs: 12px;
+  --text-label-xs--line-height: 1.2;
+  --text-label-xs--font-weight: 500;
 }
 
+/* Font families come from next/font CSS variables set in layout.tsx */
+@theme inline {
+  --font-heading: var(--font-poppins), ui-sans-serif, system-ui, sans-serif;
+  --font-body: var(--font-satoshi), ui-sans-serif, system-ui, sans-serif;
+  --font-sans: var(--font-satoshi), ui-sans-serif, system-ui, sans-serif;
+  /* Legacy alias still used by loading.tsx */
+  --font-display: var(--font-heading);
+}
+
+/* Centered 1200px content column with a mobile gutter */
+@utility container-page {
+  width: 100%;
+  max-width: calc(var(--container-page) + 2rem);
+  margin-inline: auto;
+  padding-inline: 1rem;
+}
+
+@layer base {
+  body {
+    background: var(--color-background);
+    color: var(--color-foreground);
+    font-family: var(--font-body);
+  }
+}
 
 @layer utilities {
   .btn-primary {
-    background: var(--color-primary);
-    color: var(--color-background);
-    transition: background .15s ease, transform .15s ease;
+    background: var(--color-accent);
+    color: var(--color-shuttle-gray-950);
+    transition: background 0.15s ease, transform 0.15s ease;
     cursor: pointer;
   }
 
   .btn-primary:hover {
-    background: var(--color-primary-hover);
+    background: var(--color-accent-hover);
     transform: translateY(-1px);
   }
 
@@ -45,65 +161,12 @@
     background: transparent;
     color: var(--color-foreground);
     border: 1px solid var(--color-border);
-    transition: border-color .15s ease, background .15s ease;
+    transition: border-color 0.15s ease, background 0.15s ease;
     cursor: pointer;
   }
 
   .btn-secondary:hover {
     border-color: var(--color-primary);
     background: color-mix(in srgb, var(--color-primary) 8%, transparent);
-  }
-
-  /* Standard Page Ambient Glow */
-  .bg-ambient-glow {
-    position: relative;
-    overflow: hidden;
-  }
-
-  .bg-ambient-glow::before {
-    content: "";
-    position: absolute;
-    top: 10%;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 500px;
-    height: 500px;
-    background: var(--color-primary);
-    opacity: 0.1;
-    filter: blur(140px);
-    border-radius: 9999px;
-    pointer-events: none;
-    z-index: 0;
-  }
-
-  .bg-ambient-glow::after {
-    content: "";
-    position: absolute;
-    bottom: 40px;
-    right: 40px;
-    width: 350px;
-    height: 350px;
-    background: var(--color-secondary);
-    opacity: 0.1;
-    filter: blur(120px);
-    border-radius: 9999px;
-    pointer-events: none;
-    z-index: 0;
-  }
-
-  .bg-ambient-glow-subtle::before {
-    content: "";
-    position: absolute;
-    top: 20%;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 400px;
-    height: 400px;
-    background: var(--color-primary);
-    opacity: 0.05;
-    filter: blur(160px);
-    border-radius: 9999px;
-    pointer-events: none;
-    z-index: 0;
   }
 }

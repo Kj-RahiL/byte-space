@@ -1,43 +1,31 @@
 import type { Metadata } from "next";
-import {
-  Geist,
-  Geist_Mono,
-  Space_Grotesk,
-  Manrope,
-  IBM_Plex_Mono,
-} from "next/font/google";
+import { Poppins } from "next/font/google";
+import localFont from "next/font/local";
 import "./globals.css";
 
-const spaceGrotesk = Space_Grotesk({
+// Headings / display text
+const poppins = Poppins({
   subsets: ["latin"],
-  variable: "--font-display",
-  weight: ["500", "700"],
-});
-const manrope = Manrope({
-  subsets: ["latin"],
-  variable: "--font-body",
-  weight: ["400", "500", "600", "700"],
-});
-const plexMono = IBM_Plex_Mono({
-  subsets: ["latin"],
-  variable: "--font-mono",
-  weight: ["400", "500"],
+  variable: "--font-poppins",
+  weight: ["500", "600"],
+  display: "swap",
 });
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
-  subsets: ["latin"],
-});
-
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
+// Body / label text — Satoshi isn't on Google Fonts, so it's self-hosted
+const satoshi = localFont({
+  src: [
+    { path: "./fonts/Satoshi-Regular.woff2", weight: "400", style: "normal" },
+    { path: "./fonts/Satoshi-Medium.woff2", weight: "500", style: "normal" },
+    { path: "./fonts/Satoshi-Bold.woff2", weight: "700", style: "normal" },
+  ],
+  variable: "--font-satoshi",
+  display: "swap",
 });
 
 export const metadata: Metadata = {
   title: "ByteSpace",
   description:
-    "Nexachat keeps every conversation live — one-to-one or group, synced instantly across every open screen, with nothing to refresh.",
+    "Get access to hundreds of courses — unlock your creativity, gain valuable knowledge, and grow your business with ByteSpace.",
   icons: {
     icon: "/favicon.svg",
   },
@@ -51,7 +39,7 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${geistSans.variable} ${geistMono.variable} ${spaceGrotesk.variable} ${manrope.variable} ${plexMono.variable} h-full scroll-smooth antialiased`}
+      className={`${poppins.variable} ${satoshi.variable} h-full scroll-smooth antialiased`}
     >
       <body
         className="min-h-full flex flex-col"
