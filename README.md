@@ -8,7 +8,7 @@ Landing page for **ByteSpace**, an online course marketplace, built with Next.js
 | --------- | -------------------------------------- |
 | Framework | Next.js 16 (App Router) + TypeScript   |
 | Styling   | Tailwind CSS v4 (CSS-first `@theme`)   |
-| Fonts     | Poppins (Google Fonts), Satoshi (self-hosted via `next/font/local`) |
+| Fonts     | Poppins (Google Fonts), Satoshi + Clash Display wordmark (self-hosted via `next/font/local`) |
 | Motion    | Framer Motion                          |
 | Utilities | `clsx` + `tailwind-merge` (`cn` helper) |
 

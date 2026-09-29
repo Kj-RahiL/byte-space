@@ -3,7 +3,7 @@ import { Poppins } from "next/font/google";
 import localFont from "next/font/local";
 import "./globals.css";
 
-// Headings / display text
+// Headings - display text
 const poppins = Poppins({
   subsets: ["latin"],
   variable: "--font-poppins",
@@ -11,7 +11,7 @@ const poppins = Poppins({
   display: "swap",
 });
 
-// Body / label text — Satoshi isn't on Google Fonts, so it's self-hosted
+// Body- label text — Satoshi isn't on Google Fonts, so it's self-hosted
 const satoshi = localFont({
   src: [
     { path: "./fonts/Satoshi-Regular.woff2", weight: "400", style: "normal" },
@@ -19,6 +19,14 @@ const satoshi = localFont({
     { path: "./fonts/Satoshi-Bold.woff2", weight: "700", style: "normal" },
   ],
   variable: "--font-satoshi",
+  display: "swap",
+});
+
+// "ByteSpace" wordmark only (Fontshare, self-hosted)
+const clashDisplay = localFont({
+  src: "./fonts/ClashDisplay-Bold.woff2",
+  weight: "700",
+  variable: "--font-clash-display",
   display: "swap",
 });
 
@@ -39,7 +47,7 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${poppins.variable} ${satoshi.variable} h-full scroll-smooth antialiased`}
+      className={`${poppins.variable} ${satoshi.variable} ${clashDisplay.variable} h-full scroll-smooth antialiased`}
     >
       <body
         className="min-h-full flex flex-col"
