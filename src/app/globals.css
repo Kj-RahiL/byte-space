@@ -137,6 +137,19 @@
   padding-inline: 1rem;
 }
 
+/*
+ * 120px grid of faint white lines used on the blue hero / CTA sections.
+ * Offset so a vertical line always runs through the page center, matching
+ * the Figma frame at 1440px while still covering wider screens.
+ */
+@utility bg-grid-lines {
+  background-image:
+    linear-gradient(to right, rgb(255 255 255 / 0.12) 2px, transparent 2px),
+    linear-gradient(to bottom, rgb(255 255 255 / 0.12) 2px, transparent 2px);
+  background-size: 120px 120px;
+  background-position: calc(50% + 60px) 0;
+}
+
 @layer base {
   body {
     background: var(--color-background);
