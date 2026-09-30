@@ -69,10 +69,9 @@ const Navbar = ({ className }: { className?: string }) => {
         aria-label="Main"
         className="container-page grid h-20 grid-cols-[1fr_auto] items-center md:h-30 md:grid-cols-[1fr_auto_1fr]"
       >
-        <Logo className="md:-mt-3.25" />
+        <Logo className="md:mt-8.75 md:ml-0.5 md:self-start" />
 
-        {/* Center links */}
-        <ul className="hidden items-center gap-6 md:flex">
+        <ul className="hidden items-start gap-6 md:flex">
           {navLinks.map(({ label, href }) => {
             const active = isActive(pathname, href);
             return (
@@ -81,8 +80,8 @@ const Navbar = ({ className }: { className?: string }) => {
                   href={href}
                   aria-current={active ? "page" : undefined}
                   className={cn(
-                    "transition-colors hover:text-electric-lime-400",
-                    active ? "text-label-m" : "text-body-m",
+                    "block transition-colors hover:text-electric-lime-400",
+                    active ? "text-label-m" : "text-body-m leading-[1.6]",
                   )}
                 >
                   {label}

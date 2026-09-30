@@ -1,5 +1,6 @@
 import type { CSSProperties } from "react";
 import { cn } from "@/lib/utils";
+import Image from "next/image";
 
 const tints = {
   lime: "var(--color-electric-lime-400)",
@@ -62,6 +63,12 @@ type OrnamentProps = {
   flip?: boolean;
 };
 
+// cone-type shapes slightly differently — reproduced so edges line up exactly.
+const renderInset = (src: string) =>
+  src.includes("spring")
+    ? "0 0.47% -0.47% -0.93%"
+    : "-0.22% 0.56% -0.28% -1.05%";
+
 function Ornament({ src, size, tint, offsetX, top, flip }: OrnamentProps) {
   const mask: CSSProperties = {
     maskImage: `url(${src})`,
@@ -80,12 +87,19 @@ function Ornament({ src, size, tint, offsetX, top, flip }: OrnamentProps) {
         left: `calc(50% + ${offsetX}px)`,
       }}
     >
-      {/* eslint-disable-next-line @next/next/no-img-element -- same file is reused as the CSS mask */}
-      <img src={src} alt="" width={size} height={size} className="size-full" />
-      <div
-        className="absolute inset-0 mix-blend-hard-light"
-        style={{ ...mask, backgroundColor: tints[tint] }}
-      />
+      <div className="absolute" style={{ inset: renderInset(src) }}>
+        <Image
+          src={src}
+          alt=""
+          width={size}
+          height={size}
+          className="size-full"
+        />
+        <div
+          className="absolute inset-0 mix-blend-hard-light"
+          style={{ ...mask, backgroundColor: tints[tint] }}
+        />
+      </div>
     </div>
   );
 }

@@ -17,7 +17,7 @@ const Hero = () => {
       {/* Copy + search */}
       <div className="container-page relative z-10 flex flex-col items-center gap-10 pt-8 text-center md:pt-12.25 lg:gap-15">
         <div className="flex flex-col items-center gap-6 lg:gap-8">
-          <h1 className="max-w-233.75 font-heading text-[40px] leading-[1.2] font-semibold tracking-[-0.01em] text-balance text-white sm:text-[56px] lg:text-heading-l">
+          <h1 className="max-w-233.75 font-heading text-[40px] leading-[1.2] font-semibold tracking-[-0.01em] text-balance text-white sm:text-[56px] lg:text-heading-l lg:leading-21.5">
             Get Access to Hundreds Courses Available
           </h1>
           <p className="max-w-204.75 text-body-m text-shuttle-gray-100 sm:text-body-l lg:max-w-none">
@@ -28,7 +28,7 @@ const Hero = () => {
         <HeroSearch />
       </div>
 
-      <div className="relative mt-12 h-77 sm:h-102.5 lg:mt-0 lg:h-128">
+      <div className="relative mt-12 h-77 sm:h-102.5 lg:-mt-0.5 lg:h-128">
         <div className="absolute top-0 left-1/2 h-128 w-144.5 origin-top -translate-x-1/2 scale-60 sm:scale-80 lg:scale-100">
           <Image
             src="/images/hero/hero-ellipse.svg"
@@ -45,7 +45,7 @@ const Hero = () => {
             height={541}
             preload
             sizes="578px"
-            className="relative h-135.25 w-144.5 max-w-none drop-shadow-[26px_37px_36px_rgb(0_0_0/0.1)]"
+            className="relative h-135.25 w-144.5 max-w-none drop-shadow-elevated"
           />
 
           <CategoryCard
