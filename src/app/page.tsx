@@ -1,5 +1,6 @@
 import CourseSection from "@/components/landing/courses/CourseSection";
 import Hero from "@/components/landing/hero/Hero";
+import LearningPaths from "@/components/landing/LearningPaths";
 import PartnerLogos from "@/components/landing/PartnerLogos";
 
 const Home = () => {
@@ -8,6 +9,7 @@ const Home = () => {
       <Hero />
       <PartnerLogos />
       <CourseSection />
+      <LearningPaths />
     </main>
   );
 };

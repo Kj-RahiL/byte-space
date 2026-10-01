@@ -30,7 +30,6 @@ const shared = {
 /** "Featured" isn't a real category — it shows every course */
 export const FEATURED = "Featured";
 
-/** Category pills, grouped into the three rows used in Figma (node 21:33 / 21:56 / 21:63) */
 export const courseCategoryRows: string[][] = [
   [
     FEATURED,

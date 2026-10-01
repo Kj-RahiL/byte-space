@@ -7,7 +7,6 @@ const tints = {
   white: "var(--color-shuttle-gray-50)",
 };
 
-// Positions measured from the 1440×1024 Figma hero frame (node 46:79)
 const ornaments: OrnamentProps[] = [
   {
     src: "/images/ornaments/spring-left.png",

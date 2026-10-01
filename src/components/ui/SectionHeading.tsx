@@ -8,6 +8,8 @@ type SectionHeadingProps = {
   align?: "center" | "left";
 
   tone?: "default" | "inverse";
+
+  size?: "m" | "s";
   as?: "h1" | "h2" | "h3";
   className?: string;
   titleClassName?: string;
@@ -19,6 +21,7 @@ export function SectionHeading({
   description,
   align = "center",
   tone = "default",
+  size = "m",
   as: Tag = "h2",
   className,
   titleClassName,
@@ -36,9 +39,12 @@ export function SectionHeading({
     >
       <Tag
         className={cn(
-          "font-heading text-[32px] font-semibold leading-[1.2] tracking-[-0.01em] text-balance md:text-heading-m",
+          "font-heading font-semibold tracking-[-0.01em] text-balance",
+          size === "m"
+            ? "text-[32px]/[1.2] md:text-heading-m"
+            : "text-[28px]/[1.2] md:text-[36px]/[1.2]",
           tone === "inverse" ? "text-white" : "text-ink",
-          centered && "max-w-[588px]",
+          centered && size === "m" && "max-w-147",
           titleClassName,
         )}
       >
@@ -48,8 +54,10 @@ export function SectionHeading({
         <p
           className={cn(
             "text-body-m md:text-body-l",
-            tone === "inverse" ? "text-shuttle-gray-50" : "text-shuttle-gray-400",
-            centered && "max-w-[917px]",
+            tone === "inverse"
+              ? "text-shuttle-gray-50"
+              : "text-shuttle-gray-400",
+            centered && "max-w-229.25",
             descriptionClassName,
           )}
         >
