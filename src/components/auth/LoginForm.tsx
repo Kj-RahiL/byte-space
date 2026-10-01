@@ -40,7 +40,6 @@ function Field({
   );
 }
 
-/** Sign-in form. No auth API is wired up yet — a valid submit goes to the home page. */
 const LoginForm = () => {
   const router = useRouter();
   const [submitting, setSubmitting] = useState(false);
@@ -89,7 +88,6 @@ const LoginForm = () => {
         />
       </Field>
 
-      {/* Figma right-aligns the submit button under the fields */}
       <Button type="submit" disabled={submitting} className="self-end">
         {submitting ? "Signing in…" : "Sign In"}
       </Button>

@@ -1,34 +1,38 @@
-/*
- * The two 72×72 social sign-in tiles from Figma (node 50:353). Their 40px icons
- * couldn't be exported while Figma was rate-limited, so these use the standard
- * Google and Apple marks — swap in the Figma exports if they differ.
- */
 
-function GoogleIcon() {
+function FacebookIcon() {
   return (
-    <svg viewBox="0 0 48 48" width="40" height="40" aria-hidden>
-      <path fill="#FFC107" d="M43.6 20.5H42V20H24v8h11.3C33.7 32.7 29.2 36 24 36c-6.6 0-12-5.4-12-12s5.4-12 12-12c3.1 0 5.8 1.2 7.9 3.1l5.7-5.7C34 6.1 29.3 4 24 4 13 4 4 13 4 24s9 20 20 20 20-9 20-20c0-1.3-.1-2.4-.4-3.5z" />
-      <path fill="#FF3D00" d="m6.3 14.7 6.6 4.8C14.7 15.1 19 12 24 12c3.1 0 5.8 1.2 7.9 3.1l5.7-5.7C34 6.1 29.3 4 24 4 16.3 4 9.7 8.3 6.3 14.7z" />
-      <path fill="#4CAF50" d="M24 44c5.2 0 9.9-2 13.4-5.2l-6.2-5.2C29.2 35.1 26.7 36 24 36c-5.2 0-9.6-3.3-11.3-8l-6.5 5C9.5 39.6 16.2 44 24 44z" />
-      <path fill="#1976D2" d="M43.6 20.5H42V20H24v8h11.3c-.8 2.2-2.2 4.2-4.1 5.6l6.2 5.2C37 39.2 44 34 44 24c0-1.3-.1-2.4-.4-3.5z" />
+    <svg viewBox="0 0 24 24" width="40" height="40" aria-hidden>
+      <path
+        fill="currentColor"
+        d="M24 12.07C24 5.41 18.63 0 12 0S0 5.4 0 12.07C0 18.1 4.39 23.1 10.13 24v-8.44H7.08v-3.49h3.05V9.41c0-3.02 1.79-4.69 4.53-4.69 1.31 0 2.68.24 2.68.24v2.97h-1.51c-1.49 0-1.96.93-1.96 1.89v2.25h3.33l-.53 3.49h-2.8V24C19.62 23.1 24 18.1 24 12.07z"
+      />
     </svg>
   );
 }
 
-function AppleIcon() {
+function GoogleIcon() {
   return (
     <svg viewBox="0 0 24 24" width="40" height="40" aria-hidden>
       <path
-        fill="#242528"
-        d="M16.37 12.73c-.02-2.3 1.88-3.4 1.96-3.46-1.07-1.56-2.73-1.78-3.32-1.8-1.41-.14-2.76.83-3.47.83-.72 0-1.82-.81-2.99-.79-1.54.02-2.96.9-3.75 2.27-1.6 2.78-.41 6.89 1.15 9.14.76 1.1 1.67 2.34 2.86 2.3 1.15-.05 1.58-.74 2.96-.74 1.38 0 1.77.74 2.98.72 1.23-.02 2.01-1.12 2.76-2.23.87-1.28 1.23-2.52 1.25-2.58-.03-.01-2.4-.92-2.42-3.66zM14.1 5.98c.63-.77 1.06-1.83.94-2.89-.91.04-2.01.61-2.67 1.37-.58.67-1.09 1.76-.95 2.8 1.01.08 2.05-.51 2.68-1.28z"
+        fill="currentColor"
+        d="M23.52 12.27c0-.85-.08-1.67-.22-2.45H12v4.64h6.46a5.52 5.52 0 0 1-2.4 3.62v3h3.88c2.27-2.09 3.58-5.17 3.58-8.81z"
+      />
+      <path
+        fill="currentColor"
+        d="M12 24c3.24 0 5.96-1.07 7.94-2.91l-3.88-3a7.2 7.2 0 0 1-10.72-3.78H1.34v3.1A12 12 0 0 0 12 24z"
+      />
+      <path fill="currentColor" d="M5.34 14.31a7.2 7.2 0 0 1 0-4.62v-3.1H1.34a12 12 0 0 0 0 10.82l4-3.1z" />
+      <path
+        fill="currentColor"
+        d="M12 4.77c1.76 0 3.34.61 4.59 1.8l3.44-3.44A11.52 11.52 0 0 0 12 0 12 12 0 0 0 1.34 6.59l4 3.1A7.15 7.15 0 0 1 12 4.77z"
       />
     </svg>
   );
 }
 
 const providers = [
+  { name: "Facebook", Icon: FacebookIcon },
   { name: "Google", Icon: GoogleIcon },
-  { name: "Apple", Icon: AppleIcon },
 ];
 
 const SocialButtons = () => {
@@ -39,7 +43,7 @@ const SocialButtons = () => {
           key={name}
           type="button"
           aria-label={`Sign in with ${name}`}
-          className="flex size-18 items-center justify-center rounded-2xl border border-shuttle-gray-200 bg-white transition-colors hover:border-shuttle-gray-300 hover:bg-shuttle-gray-50"
+          className="flex size-18 items-center justify-center rounded-2xl border border-shuttle-gray-200 bg-white text-shuttle-gray-950 transition-colors hover:border-shuttle-gray-300 hover:bg-shuttle-gray-50"
         >
           <Icon />
         </button>
