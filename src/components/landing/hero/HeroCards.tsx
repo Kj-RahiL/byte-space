@@ -11,10 +11,16 @@ function FloatingCard({ className, children }: { className?: string; children: R
   );
 }
 
-export function LearningProgressCard({ value, className }: { value: number; className?: string }) {
+type LearningProgressCardProps = {
+  value: number;
+  labelClassName?: string;
+  className?: string;
+};
+
+export function LearningProgressCard({ value, labelClassName, className }: LearningProgressCardProps) {
   return (
     <FloatingCard className={className}>
-      <p className="text-label-s text-shuttle-gray-950">Learning Progress</p>
+      <p className={cn("text-label-s text-shuttle-gray-950", labelClassName)}>Learning Progress</p>
       <p className="w-50 font-heading text-[48px] leading-[1.2] font-semibold tracking-[-0.01em] text-shuttle-gray-950">
         {value}%
       </p>
