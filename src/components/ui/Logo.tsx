@@ -25,7 +25,7 @@ export function Logo({ href = "/", tone = "light", className }: LogoProps) {
       />
       <span
         className={cn(
-          "mt-1.75 font-brand text-2xl leading-none font-bold",
+          "mt-1.75 font-brand text-2xl leading-7.5 font-bold",
           tone === "light" ? "text-shuttle-gray-50" : "text-shuttle-gray-950",
         )}
       >

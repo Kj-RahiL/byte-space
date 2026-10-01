@@ -137,6 +137,32 @@
   padding-inline: 1rem;
 }
 
+/*
+ * Figma effect "A" for transparent cut-outs: follows the image alpha like
+ * Figma does (a box-shadow would draw a rectangle). Only the larger layers —
+ * chained drop-shadows compound, so all 8 would over-darken.
+ */
+@utility drop-shadow-elevated {
+  filter: drop-shadow(10.21px 14.58px 16.09px rgb(0 0 0 / 0.08))
+    drop-shadow(25.84px 36.91px 36px rgb(0 0 0 / 0.1))
+    drop-shadow(37.12px 53.03px 56px rgb(0 0 0 / 0.11))
+    drop-shadow(51.04px 72.91px 72px rgb(0 0 0 / 0.13));
+}
+
+/*
+ * 120px grid of faint white lines used on the blue hero / CTA sections.
+ * Offset so a vertical line always runs through the page center, matching
+ * the Figma frame at 1440px while still covering wider screens.
+ */
+@utility bg-grid-lines {
+  background-image:
+    linear-gradient(to right, rgb(255 255 255 / 0.12) 2px, transparent 2px),
+    linear-gradient(to bottom, rgb(255 255 255 / 0.12) 2px, transparent 2px);
+  background-size: 120px 120px;
+  /* Figma's grid group sits 2px above the frame, so rows land at 118–120px */
+  background-position: calc(50% + 60px) -2px;
+}
+
 @layer base {
   body {
     background: var(--color-background);
