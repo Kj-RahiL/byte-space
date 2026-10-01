@@ -1,6 +1,7 @@
 import Image from "next/image";
 import { CourseCard, Ornament } from "@/components/ui";
 import { courses, happyStudents } from "@/constants/courses";
+import { glowBackground } from "@/lib/glows";
 import { HappyStudentsCard, LearningProgressCard } from "../hero/HeroCards";
 import { CheckCircleIcon, TotalRevenueCard, YearToDateCard } from "./GrowthCards";
 
@@ -12,19 +13,13 @@ const stats = [
 
 const creatorPerks = ["Share Your Expertise", "Monetize Your Passion", "Flexibility and Autonomy", "Build a Community"];
 
-const glows = [
-  { x: 416, y: 102, color: "212 251 32", alpha: 0.43 },
-  { x: 60, y: 751, color: "0 59 226", alpha: 0.15 },
-  { x: 1379, y: 110, color: "0 59 226", alpha: 0.07 },
-  { x: 1290, y: 1356, color: "0 59 226", alpha: 0.22 },
-  { x: 49, y: 1282, color: "212 251 32", alpha: 0.6 },
-];
-const glowBackground = glows
-  .map(
-    ({ x, y, color, alpha }) =>
-      `radial-gradient(circle 460px at calc(50% + ${x - 720}px) ${y}px, rgb(${color} / ${alpha}), rgb(${color} / ${alpha / 2}) 43%, transparent)`,
-  )
-  .join(", ");
+const glows = glowBackground([
+  { x: 416, y: 102, color: "lime", alpha: 0.43 },
+  { x: 60, y: 751, color: "blue", alpha: 0.15 },
+  { x: 1379, y: 110, color: "blue", alpha: 0.07 },
+  { x: 1290, y: 1356, color: "blue", alpha: 0.22 },
+  { x: 49, y: 1282, color: "lime", alpha: 0.6 },
+]);
 
 function Composition({
   width,
@@ -58,7 +53,7 @@ const GrowthSection = () => {
   return (
     <section
       className="relative isolate overflow-hidden bg-[#fafafa] py-20 xl:py-30"
-      style={{ backgroundImage: glowBackground }}
+      style={{ backgroundImage: glows }}
     >
       <div className="container-page flex flex-col gap-16 xl:gap-18">
         {/*  Your Path to Professional Growth  */}
@@ -106,13 +101,14 @@ const GrowthSection = () => {
           <Composition width={541} height={596} className="order-2 w-full xl:order-1">
             <TotalRevenueCard amount="$120.29" delta="+12$" progress={56} className="top-11 left-0" />
             <YearToDateCard amount="$1,200.38" delta="+12$" className="top-48.5 left-0" />
+            
             <Image
               src="/images/growth/creator.png"
               alt="Course creator with headphones holding a tablet"
-              width={435}
-              height={596}
-              sizes="435px"
-              className="absolute top-0 left-7 h-149 w-108.75 max-w-none drop-shadow-elevated"
+              width={579}
+              height={719}
+              sizes="579px"
+              className="absolute top-0 left-1.75 h-179.75 w-144.75 max-w-none"
             />
             <HappyStudentsCard
               rating={4.5}
