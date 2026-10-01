@@ -15,7 +15,13 @@ const TestimonialCard = ({ name, role, quote, avatar }: Testimonial) => {
   return (
     <figure className="flex flex-col gap-6 rounded-3xl bg-white p-6">
       {avatar ? (
-        <Image src={avatar} alt="" width={80} height={80} className="size-20 rounded-full object-cover" />
+        <Image
+          src={avatar}
+          alt=""
+          width={80}
+          height={80}
+          className="size-20 rounded-full object-cover"
+        />
       ) : (
         <span
           aria-hidden
@@ -25,10 +31,14 @@ const TestimonialCard = ({ name, role, quote, avatar }: Testimonial) => {
         </span>
       )}
       <figcaption className="flex flex-col">
-        <span className="font-heading text-heading-xs text-shuttle-gray-950">{name}</span>
+        <span className="font-heading text-heading-xs text-black-950">
+          {name}
+        </span>
         <span className="text-body-l text-persian-blue-800">{role}</span>
       </figcaption>
-      <blockquote className="text-body-l text-shuttle-gray-400">&ldquo;{quote}&rdquo;</blockquote>
+      <blockquote className="text-body-l text-black-700">
+        &ldquo;{quote}&rdquo;
+      </blockquote>
     </figure>
   );
 };
