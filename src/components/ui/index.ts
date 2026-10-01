@@ -4,3 +4,4 @@ export { AvatarGroup, type Avatar } from "./AvatarGroup";
 export { Rating } from "./Rating";
 export { CourseCard } from "./CourseCard";
 export { Logo } from "./Logo";
+export { Ornament } from "./Ornament";

@@ -8,13 +8,12 @@ import { Rating } from "./Rating";
 type CourseCardProps = {
   course: Course;
   className?: string;
-  /** Pass for above-the-fold cards so the thumbnail isn't lazy-loaded */
   preload?: boolean;
 };
 
 function MetaChip({ children }: { children: React.ReactNode }) {
   return (
-    <span className="rounded-3xl bg-[rgb(246_246_246/0.6)] px-3 py-1.5 text-label-xs whitespace-nowrap text-black-700 backdrop-blur-[4px]">
+    <span className="rounded-3xl bg-[rgb(246_246_246/0.6)] px-2.5 py-1.5 sm:px-3 text-label-xs whitespace-nowrap text-black-700 backdrop-blur-xs">
       {children}
     </span>
   );
@@ -41,12 +40,12 @@ export function CourseCard({ course, className, preload }: CourseCardProps) {
   return (
     <article
       className={cn(
-        "flex w-full flex-col gap-5 overflow-hidden rounded-3xl border border-shuttle-gray-200 bg-white p-[15px]",
+        "flex w-full flex-col gap-5 overflow-hidden rounded-3xl border border-shuttle-gray-200 bg-white p-3.75 pb-4",
         className,
       )}
     >
       {/* Thumbnail + meta chips */}
-      <div className="relative aspect-[341/195] w-full overflow-hidden rounded-xl bg-[#443131]">
+      <div className="relative aspect-341/195 w-full overflow-hidden rounded-xl bg-[#443131]">
         <Image
           src={image}
           alt=""
@@ -55,7 +54,7 @@ export function CourseCard({ course, className, preload }: CourseCardProps) {
           className="object-cover"
           preload={preload}
         />
-        <div className="absolute inset-x-3 bottom-[19px] flex flex-wrap gap-3">
+        <div className="absolute inset-x-3 bottom-4.75 flex flex-wrap gap-2 sm:gap-3">
           <MetaChip>{lessons} Lessons</MetaChip>
           <MetaChip>{duration}</MetaChip>
           <MetaChip>{comments} Comments</MetaChip>
@@ -75,7 +74,7 @@ export function CourseCard({ course, className, preload }: CourseCardProps) {
                 title
               )}
             </h3>
-            <p className="text-body-xs text-black-700">
+            <p className="text-body-xs leading-5 text-black-700">
               by{" "}
               {creatorHref ? (
                 <Link href={creatorHref} className="text-persian-blue-800 hover:underline">
