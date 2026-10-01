@@ -79,7 +79,7 @@ const CreatorCta = () => {
         ))}
       </div>
 
-      <div className="container-page relative flex flex-col items-center gap-10 py-20 text-center lg:min-h-122 lg:pt-21.25 lg:pb-21">
+      <div className="reveal container-page relative flex flex-col items-center gap-10 py-20 text-center lg:min-h-122 lg:pt-21.25 lg:pb-21">
         <SectionHeading
           tone="inverse"
           className="gap-10"

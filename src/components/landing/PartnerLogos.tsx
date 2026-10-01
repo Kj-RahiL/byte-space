@@ -11,7 +11,7 @@ const partners = [
 const PartnerLogos = () => {
   return (
     <section aria-label="Our partners" className="bg-shuttle-gray-50 py-12 md:py-20">
-      <ul className="container-page flex flex-wrap items-end justify-center gap-x-8 gap-y-6 md:gap-x-18">
+      <ul className="reveal container-page flex flex-wrap items-end justify-center gap-x-8 gap-y-6 md:gap-x-18">
         {partners.map((p, i) => (
           <li key={p.src} className="shrink-0">
             <Image

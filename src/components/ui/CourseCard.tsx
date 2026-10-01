@@ -40,7 +40,9 @@ export function CourseCard({ course, className, preload }: CourseCardProps) {
   return (
     <article
       className={cn(
-        "flex w-full flex-col gap-5 overflow-hidden rounded-3xl border border-shuttle-gray-200 bg-white p-3.75 pb-4",
+        "group flex w-full flex-col gap-5 overflow-hidden rounded-3xl border border-shuttle-gray-200 bg-white p-3.75 pb-4",
+        // hover: lift + soft shadow (no movement with reduced motion)
+        "transition-[translate,box-shadow] duration-300 ease-out hover:-translate-y-1 hover:shadow-[0_16px_40px_rgb(0_0_0/0.08)] motion-reduce:transition-none motion-reduce:hover:translate-y-0",
         className,
       )}
     >
@@ -51,7 +53,8 @@ export function CourseCard({ course, className, preload }: CourseCardProps) {
           alt=""
           fill
           sizes="(min-width: 1024px) 341px, (min-width: 640px) 50vw, 100vw"
-          className="object-cover"
+          placeholder={typeof image === "string" ? "empty" : "blur"}
+          className="object-cover transition-transform duration-500 ease-out group-hover:scale-105 motion-reduce:transition-none motion-reduce:group-hover:scale-100"
           preload={preload}
         />
         <div className="absolute inset-x-3 bottom-4.75 flex flex-wrap gap-2 sm:gap-3">

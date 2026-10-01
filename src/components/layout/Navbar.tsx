@@ -71,7 +71,7 @@ const Navbar = ({ className }: { className?: string }) => {
       >
         <Logo className="md:mt-8.75 md:ml-0.5 md:self-start" />
 
-        <ul className="hidden items-start gap-6 md:flex">
+        <ul className="hidden items-center gap-6 md:flex">
           {navLinks.map(({ label, href }) => {
             const active = isActive(pathname, href);
             return (
@@ -81,7 +81,8 @@ const Navbar = ({ className }: { className?: string }) => {
                   aria-current={active ? "page" : undefined}
                   className={cn(
                     "block transition-colors hover:text-electric-lime-400",
-                    active ? "text-label-m" : "text-body-m leading-[1.6]",
+                    "text-body-m leading-[1.6]",
+                    active && "font-medium",
                   )}
                 >
                   {label}

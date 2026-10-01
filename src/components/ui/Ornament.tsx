@@ -33,7 +33,11 @@ export function Ornament({ src, size, tint, flip, className, style }: OrnamentPr
       className={cn("pointer-events-none absolute isolate", flip && "-scale-x-100", className)}
       style={{ width: size, height: size, ...style }}
     >
-      <div className="absolute" style={{ inset: renderInset(src) }}>
+      {/* Gentle float; the negative delay (from the size) keeps ornaments out of sync */}
+      <div
+        className="absolute motion-safe:animate-float"
+        style={{ inset: renderInset(src), animationDelay: `-${(size % 7) + 0.5}s` }}
+      >
         <Image src={src} alt="" width={size} height={size} unoptimized className="size-full" />
         <div className="absolute inset-0 mix-blend-hard-light" style={{ ...mask, backgroundColor: tints[tint] }} />
       </div>

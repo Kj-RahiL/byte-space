@@ -1,3 +1,4 @@
+import type { StaticImageData } from "next/image";
 import type { Avatar } from "@/components/ui/AvatarGroup";
 
 export type CourseLevel = "Beginner" | "Intermediate" | "Advanced";
@@ -8,7 +9,7 @@ export type Course = {
   creator: string;
   creatorHref?: string;
   href?: string;
-  image: string;
+  image: StaticImageData | string;
 
   category: string;
   lessons: number;

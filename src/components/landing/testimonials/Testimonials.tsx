@@ -4,7 +4,7 @@ import { testimonials } from "@/constants/testimonials";
 import { glowBackground } from "@/lib/glows";
 import TestimonialCard from "./TestimonialCard";
 
-// Use an avatar only once its file is actually in /public — until then the card shows initials
+// Use an avatar only once its file is actually
 const hasPublicFile = (src?: string) => !!src && existsSync(path.join(process.cwd(), "public", src));
 
 
@@ -18,7 +18,7 @@ const Testimonials = () => {
   return (
     <section className="bg-[#fafafa] py-16 lg:min-h-196 lg:pt-18.5 lg:pb-14.25" style={{ backgroundImage: glows }}>
       <div className="container-page flex flex-col gap-12 lg:gap-18">
-        <div className="flex flex-col gap-6 lg:-mx-0.5 lg:grid lg:grid-cols-[577px_580px] lg:items-end lg:gap-10.75">
+        <div className="reveal flex flex-col gap-6 lg:grid lg:grid-cols-2 lg:items-end lg:gap-10 xl:-mx-0.5 xl:grid-cols-[577px_580px] xl:gap-10.75">
           <h2 className="font-heading text-[32px]/[1.2] font-semibold tracking-[-0.01em] text-black-950 md:text-heading-m lg:max-w-144.25">
             Discover What Our Community Is Saying
           </h2>
@@ -30,7 +30,7 @@ const Testimonials = () => {
           </p>
         </div>
 
-        <ul className="grid items-start gap-6 md:grid-cols-2 lg:-mx-0.5 lg:grid-cols-3 lg:gap-10.25">
+        <ul className="reveal grid items-start gap-6 md:grid-cols-2 lg:-mx-0.5 lg:grid-cols-3 lg:gap-10.25">
           {testimonials.map((t) => (
             <li key={t.name}>
               <TestimonialCard {...t} avatar={hasPublicFile(t.avatar) ? t.avatar : undefined} />

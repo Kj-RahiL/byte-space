@@ -57,7 +57,7 @@ const GrowthSection = () => {
     >
       <div className="container-page flex flex-col gap-16 xl:gap-18">
         {/*  Your Path to Professional Growth  */}
-        <div className="flex flex-col items-center gap-12 xl:ml-px xl:grid xl:grid-cols-[574px_621px] xl:items-center xl:gap-15.75">
+        <div className="reveal flex flex-col items-center gap-12 xl:ml-px xl:grid xl:grid-cols-[574px_621px] xl:items-center xl:gap-15.75">
           <div className="flex flex-col gap-10">
             <h2 className="font-heading text-[32px]/[1.2] font-semibold tracking-[-0.01em] text-ink md:text-heading-m xl:max-w-144.25">
               Your Path to Professional Growth Starts Here!
@@ -84,7 +84,8 @@ const GrowthSection = () => {
               alt="Student with headphones holding a laptop"
               width={577}
               height={540}
-              sizes="577px"
+              // compositions are scaled 0.55 / 0.9 / 1 at base / sm / md
+              sizes="(min-width: 768px) 577px, (min-width: 640px) 519px, 317px"
               className="absolute top-3 left-0 h-135 w-144.25 max-w-none drop-shadow-elevated"
             />
             <LearningProgressCard
@@ -97,7 +98,7 @@ const GrowthSection = () => {
         </div>
 
         {/*  Create & Manage Courses Easily */}
-        <div className="flex flex-col items-center gap-12 xl:ml-px xl:grid xl:grid-cols-[541px_580px] xl:items-center xl:gap-19.75">
+        <div className="reveal flex flex-col items-center gap-12 xl:ml-px xl:grid xl:grid-cols-[541px_580px] xl:items-center xl:gap-19.75">
           <Composition width={541} height={596} className="order-2 w-full xl:order-1">
             <TotalRevenueCard amount="$120.29" delta="+12$" progress={56} className="top-11 left-0" />
             <YearToDateCard amount="$1,200.38" delta="+12$" className="top-48.5 left-0" />
@@ -107,7 +108,7 @@ const GrowthSection = () => {
               alt="Course creator with headphones holding a tablet"
               width={579}
               height={719}
-              sizes="579px"
+              sizes="(min-width: 768px) 579px, (min-width: 640px) 521px, 318px"
               className="absolute top-0 left-1.75 h-179.75 w-144.75 max-w-none"
             />
             <HappyStudentsCard
