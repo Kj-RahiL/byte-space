@@ -1,5 +1,4 @@
 import Hero from "@/components/landing/hero/Hero";
-import PartnerLogos from "@/components/landing/PartnerLogos";
 import { CourseCard, SectionHeading } from "@/components/ui";
 import { courses } from "@/constants/courses";
 
@@ -7,7 +6,6 @@ const Home = () => {
   return (
     <main className="bg-background min-h-screen">
       <Hero />
-      <PartnerLogos />
       <section className="container-page flex flex-col gap-10 py-20">
         <SectionHeading
           title="Discover Your Passion, Build Your Skills"
