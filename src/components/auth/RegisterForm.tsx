@@ -7,19 +7,20 @@ import { Button } from "@/components/ui";
 import { EMAIL_PATTERN } from "./validation";
 import { FormField, inputClasses } from "./FormField";
 
-type LoginValues = {
+type RegisterValues = {
+  fullName: string;
   email: string;
   password: string;
 };
 
-const LoginForm = () => {
+const RegisterForm = () => {
   const router = useRouter();
   const [submitting, setSubmitting] = useState(false);
   const {
     register,
     handleSubmit,
     formState: { errors },
-  } = useForm<LoginValues>({ mode: "onTouched" });
+  } = useForm<RegisterValues>({ mode: "onTouched" });
 
   const onSubmit = () => {
     setSubmitting(true);
@@ -28,6 +29,22 @@ const LoginForm = () => {
 
   return (
     <form noValidate onSubmit={handleSubmit(onSubmit)} className="flex flex-col gap-6">
+      <FormField id="fullName" label="Full Name" error={errors.fullName?.message}>
+        <input
+          id="fullName"
+          type="text"
+          autoComplete="name"
+          placeholder="Jamie Davis"
+          aria-invalid={!!errors.fullName}
+          aria-describedby={errors.fullName ? "fullName-error" : undefined}
+          className={inputClasses(!!errors.fullName)}
+          {...register("fullName", {
+            required: "Enter your full name",
+            validate: (v) => v.trim().length >= 2 || "Enter your full name",
+          })}
+        />
+      </FormField>
+
       <FormField id="email" label="Email" error={errors.email?.message}>
         <input
           id="email"
@@ -48,23 +65,23 @@ const LoginForm = () => {
         <input
           id="password"
           type="password"
-          autoComplete="current-password"
+          autoComplete="new-password"
           placeholder="********"
           aria-invalid={!!errors.password}
           aria-describedby={errors.password ? "password-error" : undefined}
           className={inputClasses(!!errors.password)}
           {...register("password", {
-            required: "Enter your password",
-            minLength: { value: 8, message: "Password must be at least 8 characters" },
+            required: "Choose a password",
+            minLength: { value: 8, message: "Use at least 8 characters" },
           })}
         />
       </FormField>
 
       <Button type="submit" disabled={submitting} className="self-end">
-        {submitting ? "Signing in…" : "Sign In"}
+        {submitting ? "Creating account…" : "Continue"}
       </Button>
     </form>
   );
 };
 
-export default LoginForm;
+export default RegisterForm;
