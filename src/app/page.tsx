@@ -1,4 +1,5 @@
 import CourseSection from "@/components/landing/courses/CourseSection";
+import GrowthSection from "@/components/landing/growth/GrowthSection";
 import Hero from "@/components/landing/hero/Hero";
 import LearningPaths from "@/components/landing/LearningPaths";
 import PartnerLogos from "@/components/landing/PartnerLogos";
@@ -10,6 +11,7 @@ const Home = () => {
       <PartnerLogos />
       <CourseSection />
       <LearningPaths />
+      <GrowthSection />
     </main>
   );
 };
