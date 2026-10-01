@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
 import { Poppins } from "next/font/google";
 import localFont from "next/font/local";
-import Footer from "@/components/layout/Footer";
 import "./globals.css";
 
 // Headings - display text
@@ -56,7 +55,6 @@ export default function RootLayout({
         data-gr-ext-installed=""
       >
         {children}
-        <Footer />
       </body>
     </html>
   );
