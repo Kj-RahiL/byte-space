@@ -56,7 +56,7 @@ const Footer = () => {
   return (
     <footer className="border-t border-shuttle-gray-100 bg-white pt-12 pb-10 lg:pt-17.5 lg:pb-11.75">
       <div className="container-page flex flex-col gap-16 lg:gap-32.5">
-        <div className="flex flex-col gap-12 lg:grid lg:grid-cols-[528px_580px] lg:justify-between">
+        <div className="flex flex-col gap-12 lg:grid lg:grid-cols-2 lg:gap-10 xl:grid-cols-[528px_580px] xl:justify-between">
           {/* Brand + newsletter */}
           <div className="flex flex-col gap-11.25">
             <div className="flex flex-col gap-4">

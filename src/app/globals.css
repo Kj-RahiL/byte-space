@@ -111,6 +111,47 @@
   --text-label-xs: 12px;
   --text-label-xs--line-height: 1.2;
   --text-label-xs--font-weight: 500;
+
+  /* ---------- Motion ---------- */
+  /* `translate` (not `transform`) so these compose with scale/flip utilities */
+  --animate-float: float 7s ease-in-out infinite;
+  --animate-fade-up: fade-up 0.7s cubic-bezier(0.22, 1, 0.36, 1) both;
+
+  @keyframes float {
+    0%,
+    100% {
+      translate: 0 0;
+    }
+    50% {
+      translate: 0 -14px;
+    }
+  }
+
+  @keyframes fade-up {
+    from {
+      opacity: 0;
+      translate: 0 24px;
+    }
+    to {
+      opacity: 1;
+      translate: 0 0;
+    }
+  }
+}
+
+/*
+ * Scroll reveal: fades a block up as it enters the viewport, driven by the
+ * scroll position (no JS). Browsers without scroll-driven animations — and
+ * anyone with reduced motion — simply see the content.
+ */
+@utility reveal {
+  @media (prefers-reduced-motion: no-preference) {
+    @supports (animation-timeline: view()) {
+      animation: fade-up linear both;
+      animation-timeline: view();
+      animation-range: entry 0% entry 60%;
+    }
+  }
 }
 
 /* Font families come from next/font CSS variables set in layout.tsx */
@@ -145,6 +186,13 @@
     linear-gradient(to bottom, rgb(255 255 255 / 0.12) 2px, transparent 2px);
   background-size: 120px 120px;
   background-position: calc(50% + 60px) -2px;
+}
+
+@utility scrollbar-none {
+  scrollbar-width: none;
+  &::-webkit-scrollbar {
+    display: none;
+  }
 }
 
 @layer base {

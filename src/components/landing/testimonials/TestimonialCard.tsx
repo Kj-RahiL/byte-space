@@ -13,7 +13,7 @@ function initials(name: string) {
 
 const TestimonialCard = ({ name, role, quote, avatar }: Testimonial) => {
   return (
-    <figure className="flex flex-col gap-6 rounded-3xl bg-white p-6">
+    <figure className="flex flex-col gap-6 rounded-3xl bg-white p-6 transition-[translate,box-shadow] duration-300 ease-out hover:-translate-y-1 hover:shadow-[0_16px_40px_rgb(0_0_0/0.06)] motion-reduce:transition-none motion-reduce:hover:translate-y-0">
       {avatar ? (
         <Image
           src={avatar}

@@ -1,5 +1,12 @@
 import type { Avatar } from "@/components/ui/AvatarGroup";
 import type { Course } from "@/types/course";
+// Static imports: Next.js reads their size and generates a blur placeholder
+import course1 from "../../public/images/courses/course-1.jpg";
+import course2 from "../../public/images/courses/course-2.jpg";
+import course3 from "../../public/images/courses/course-3.jpg";
+import course4 from "../../public/images/courses/course-4.jpg";
+import course5 from "../../public/images/courses/course-5.jpg";
+import course6 from "../../public/images/courses/course-6.jpg";
 
 export const courseStudents: Avatar[] = [
   { src: "/images/avatars/avatar-1.png", alt: "Student" },
@@ -56,42 +63,42 @@ export const courses: Course[] = [
   {
     id: "learn-figma",
     title: "Learn Figma from Basic",
-    image: "/images/courses/course-1.jpg",
+    image: course1,
     category: "UI/UX Design",
     ...shared,
   },
   {
     id: "digital-asset",
     title: "Build Digital Asset",
-    image: "/images/courses/course-2.jpg",
+    image: course2,
     category: "Graphic Design",
     ...shared,
   },
   {
     id: "big-data",
     title: "the Power of Big Data",
-    image: "/images/courses/course-3.jpg",
+    image: course3,
     category: "Data Science",
     ...shared,
   },
   {
     id: "productivity-self-care",
     title: "Balancing Productivity and Self-Care",
-    image: "/images/courses/course-4.jpg",
+    image: course4,
     category: "Productivity",
     ...shared,
   },
   {
     id: "money-management",
     title: "Mastering Money Management",
-    image: "/images/courses/course-5.jpg",
+    image: course5,
     category: "Freelance & Entrepreneurship",
     ...shared,
   },
   {
     id: "idea-to-startup",
     title: "From Idea to Startup Success",
-    image: "/images/courses/course-6.jpg",
+    image: course6,
     category: "Freelance & Entrepreneurship",
     ...shared,
   },

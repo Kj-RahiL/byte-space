@@ -15,7 +15,7 @@ function CategoryCard({ label, icon }: { label: string; icon: string }) {
   return (
     <Link
       href={`/courses?category=${encodeURIComponent(label)}`}
-      className="group flex aspect-square flex-col items-center justify-center gap-3 rounded-3xl border border-shuttle-gray-200 bg-white transition-colors hover:border-electric-lime-400 hover:bg-shuttle-gray-50 lg:size-41.75"
+      className="group flex aspect-square flex-col items-center justify-center gap-3 rounded-3xl border border-shuttle-gray-200 bg-white transition-[border-color,background-color,translate] duration-200 hover:-translate-y-1 hover:border-electric-lime-400 hover:bg-shuttle-gray-50 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-persian-blue-800 motion-reduce:hover:translate-y-0 xl:size-41.75"
     >
       <span className="flex items-center justify-center rounded-full bg-electric-lime-400 p-3 transition-transform group-hover:scale-105">
         <Image src={icon} alt="" width={36} height={36} unoptimized />
@@ -29,12 +29,14 @@ const LearningPaths = () => {
   return (
     <section className="container-page flex flex-col gap-10 pb-16 lg:gap-17 lg:pb-30">
       <SectionHeading
+        className="reveal"
         size="s"
         descriptionClassName="lg:max-w-231.25"
         title="Explore Diverse Learning Paths at Bytespace"
         description="At Bytespace, we believe in empowering individuals through knowledge. Our diverse range of courses spans various fields, ensuring there's something for everyone. Unleash your potential and explore our carefully curated categories."
       />
-      <ul className="grid grid-cols-2 gap-4 sm:grid-cols-3 sm:gap-6 lg:-mx-px lg:flex lg:justify-center lg:gap-10">
+      {/* Figma's single 1202px row only fits from xl; lg uses 6 fluid columns */}
+      <ul className="reveal grid grid-cols-2 gap-4 sm:grid-cols-3 sm:gap-6 lg:grid-cols-6 lg:gap-4 xl:-mx-px xl:flex xl:justify-center xl:gap-10">
         {categories.map((c) => (
           <li key={c.label}>
             <CategoryCard {...c} />

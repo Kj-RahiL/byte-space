@@ -6,7 +6,7 @@ type ButtonVariant = "primary" | "secondary" | "ghost";
 type ButtonSize = "sm" | "md";
 
 const base =
-  "inline-flex shrink-0 items-center justify-center gap-2 whitespace-nowrap rounded-3xl font-body transition-colors duration-150 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-persian-blue-800 disabled:pointer-events-none disabled:opacity-50";
+  "inline-flex shrink-0 items-center justify-center gap-2 whitespace-nowrap rounded-3xl font-body transition-[background-color,border-color,color,opacity,scale] duration-150 active:scale-[0.97] motion-reduce:active:scale-100 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-persian-blue-800 disabled:pointer-events-none disabled:opacity-50";
 
 const variants: Record<ButtonVariant, string> = {
   primary:

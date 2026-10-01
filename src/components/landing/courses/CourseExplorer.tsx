@@ -25,10 +25,11 @@ const CourseExplorer = ({ courses }: CourseExplorerProps) => {
       <div
         role="group"
         aria-label="Filter courses by category"
-        className="-mx-4 flex gap-3 overflow-x-auto px-4 pb-1 scrollbar-none md:mx-0 md:flex-wrap md:justify-center md:gap-4 md:overflow-visible md:px-0 md:pb-0 lg:flex-col lg:items-center lg:gap-5.25"
+        className="-mx-4 flex gap-3 overflow-x-auto px-4 pb-1 scrollbar-none md:mx-0 md:flex-wrap md:justify-center md:gap-4 md:overflow-visible md:px-0 md:pb-0 xl:flex-col xl:items-center xl:gap-5.25"
       >
         {courseCategoryRows.map((row, i) => (
-          <div key={i} className="contents lg:flex lg:gap-4">
+
+          <div key={i} className="contents xl:flex xl:gap-4">
             {row.map((category) => {
               const isActive = category === active;
               return (
@@ -38,7 +39,7 @@ const CourseExplorer = ({ courses }: CourseExplorerProps) => {
                   aria-pressed={isActive}
                   onClick={() => setActive(category)}
                   className={cn(
-                    "shrink-0 rounded-3xl px-4 py-3 text-label-m whitespace-nowrap transition-colors",
+                    "shrink-0 rounded-3xl px-4 py-3 text-label-m whitespace-nowrap transition-[background-color,color,scale] duration-150 active:scale-95 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-persian-blue-800 motion-reduce:active:scale-100",
                     isActive
                       ? "bg-electric-lime-400 text-shuttle-gray-950"
                       : "bg-shuttle-gray-50 text-shuttle-gray-700 hover:bg-shuttle-gray-100",
@@ -61,7 +62,7 @@ const CourseExplorer = ({ courses }: CourseExplorerProps) => {
       </div>
 
       {visible.length > 0 ? (
-        <div className="grid gap-10 sm:grid-cols-2 lg:grid-cols-3">
+        <div key={active} className="grid gap-10 motion-safe:animate-fade-up sm:grid-cols-2 lg:grid-cols-3">
           {visible.map((course) => (
             <CourseCard key={course.id} course={course} />
           ))}
