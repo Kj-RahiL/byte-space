@@ -9,6 +9,8 @@ export type Course = {
   creatorHref?: string;
   href?: string;
   image: string;
+
+  category: string;
   lessons: number;
 
   duration: string;
@@ -17,9 +19,7 @@ export type Course = {
   rating: number;
 
   price: number;
-  /** e.g. "lifetime" -> rendered as "/lifetime" */
   pricePeriod?: string;
   students: Avatar[];
-  /** Counter label after the student avatars, e.g. "26+" */
   studentsMoreLabel?: string;
 };
